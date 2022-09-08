@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true
+  },
+  "includes": ["src/**/*.ts", "src/**/*.tsx", ".eslintrc.js"],
+  "exclude": ["node_modules", "dist"]
+}
