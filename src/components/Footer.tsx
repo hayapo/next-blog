@@ -41,7 +41,7 @@ export const Footer: React.FC = () => (
         </Flex>
         <Flex alignItems="center" gap="0.5">
           <SiNextdotjs color={'#26A69A'} />
-          <Link isExternal href='https://www.gatsbyjs.com' fontWeight="bold" color={useColorModeValue('teal.500', 'teal.400')} >Next.JS</Link>
+          <Link isExternal href='https://nextjs.org/' fontWeight="bold" color={useColorModeValue('teal.500', 'teal.400')} >Next.JS</Link>
         </Flex>
         <Flex alignItems="center" gap="0.5">
           <SiChakraui color={'#26A69A'} />

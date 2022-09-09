@@ -76,7 +76,7 @@ export const MarkdownStyle = {
   }),
   code: chakra(ChakraCode, {
     baseStyle: {
-      mx: "0.5em",
+      mx: "0.1em",
     },
   }),
   pre: chakra(Box, {

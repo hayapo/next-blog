@@ -9,6 +9,6 @@ type MetadataType = {
 export const siteMetadata: MetadataType = {
   siteTitle: "haypo's Blog",
   siteDescription: "hayapoの技術/日常ブログです",
-  siteUrl: "https://hayapo.github.io/",
+  siteUrl: "https://blog.hayapo.dev/",
   siteType: "website",
 };

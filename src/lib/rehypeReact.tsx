@@ -16,7 +16,7 @@ const Div = (props: Props) => {
     return <chakra.div
       fontSize={{ base: "xs", lg: "lg" }}
       marginY={"1.5em"}
-      paddingX={"1em"}
+      paddingX={"0.5em"}
       whiteSpace={"pre-wrap"}
       {...props}
     />;

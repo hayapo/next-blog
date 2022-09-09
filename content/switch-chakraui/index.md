@@ -7,7 +7,7 @@ description: "当ブログのスタイリングをTailwind CSSからChakra UIに
 今回、このブログのスタイリングを Tailwind CSS から Chakra UI に移行したので、
 移行の際に大変だったこととかについて書きたいと思います。
 
-# なぜ移行したか
+## なぜ移行したか
 
 もともとこのブログは Tailwind CSS でスタイリングをしていました。
 Utility-First な Tailwind CSS の開発体験はすごく良かったですが、
@@ -18,7 +18,7 @@ Chakra UI は Utility-First な UI コンポーネントライブラリで、便
 汎用性は Tailwind CSS や MUI には劣りますが、初心者の僕には十分すぎるくらいです。
 ドキュメントを少し読んだだけでも良さそうなのが伝わってきたので使ってみることにしました。
 
-# 移行する
+## 移行する
 
 `switch-to-chakraui`ブランチを切って作業開始
 
@@ -54,7 +54,7 @@ module.exports = {
 
 これで Chakra UI が使えるようになった
 
-# Theme をつけてみる
+## Theme をつけてみる
 
 Chakra UI は`Theme.js`で Theme を設定する。
 
@@ -100,7 +100,7 @@ export default theme;
 
 こんな感じ。
 
-## Color Mode の設定
+### Color Mode の設定
 
 以下の部分で、`initialColorMode`を設定している。
 `useSystemColorMode`を`true`にするとシステムのカラーモードに従うようになる。
@@ -119,11 +119,11 @@ const config = {
 どうやら`initialColorMode`と違う状態で再読込すると、`initialColorMode`に一瞬だけ切り替わる問題みたい。
 Next.js で作られたサイトではこの問題が起きてないように思えるので、そこに何か問題があるのかも？
 
-# Chakra UI で書き換える
+## Chakra UI で書き換える
 
 ここまで来たらあとはもともと Tailwind CSS で書いていたところを Chakra UI で書き換えるだけ。
 
-## Box
+### Box
 
 Chakra UI の基本は`<Box>`
 ドキュメントの説明によると、
@@ -134,7 +134,7 @@ Chakra UI の基本は`<Box>`
 らしい。
 これを踏まえてガリガリ書き換えていく。
 
-## カラーモードの切り替え
+### カラーモードの切り替え
 
 ```tsx
 import { IconButton, useColorMode,}
@@ -152,7 +152,7 @@ const { colorMode, toggleColorMode } = useColorMode();
 Icon を現在のカラーモードを保持する`colorMode`の値によって切り替えて、
 `onClick`に`toggleColorMode`を指定するだけでモード切替ボタンが実装できる。
 
-# 感想
+## 感想
 
 こんな感じで、Chakra UI はとてもよい開発体験を提供してくれました。
 汎用性は低いなあと感じるところは確かにありましたが、それを上回るくらいよいライブラリだなと思います。
@@ -160,5 +160,5 @@ Icon を現在のカラーモードを保持する`colorMode`の値によって�
 
 ### 参考サイト
 
-[Chakra UI 公式サイト](https://chakra-ui.com/)
+[Chakra UI 公式サイト](https://chakra-ui.com/)  
 [Gatsby.js で作ったブログに Chakra UI を導入した](https://blog.hppd.dev/2020/12/30-chakra-ui)
