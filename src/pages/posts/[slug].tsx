@@ -1,74 +1,65 @@
-import React, { ReactNode } from "react";
+import { GetStaticPaths, GetStaticProps } from "next";
+import React from "react";
 import ErrorPage from "next/error";
-import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { Heading } from "@chakra-ui/react";
-
-import { markdownToHtml } from "../../lib/markdownToHtml";
-import { RehypeReact } from "../../components/rehypeReact";
+import { NextPage } from "next";
 import { Head } from "../../components/Head";
-import { getAllPosts, getPostBySlug } from "../../lib/readMarkdown";
-import type { PostType } from "../../interfaces/post";
+import { client } from "../../lib/client";
+import type { BlogType } from "../../types/blog";
+import { ArticleTemplate } from "@/components/ArticleTemplate";
 
 type Props = {
-  post: PostType;
-  content: string;
-}
-type Params = {
-  params: {
-    slug: string
-  }
-}
+  post: BlogType;
+};
 
-export const getStaticPaths = async () => {
-  const posts = getAllPosts(["slug"]);
+export const getStaticPaths: GetStaticPaths = async () => {
+  const data = await client.getList<BlogType>({
+    endpoint: "blog",
+    queries: {
+      fields: "id",
+    },
+  });
+  const postCount = data.totalCount;
+  const allData = await client.getList<BlogType>({
+    endpoint: "blog",
+    queries: {
+      limit: postCount,
+    },
+  });
+  const paths = allData.contents.map((content) => `/posts/${content.id}`);
   return {
-    paths: posts.map((post) => {
-      return {
-        params: {
-          slug: post.slug,
-        },
-      };
-    }),
+    paths,
     fallback: false,
   };
 };
 
-export const getStaticProps = async ({ params }: Params) => {
-  const post = getPostBySlug(params.slug, [
-    "slug",
-    "title",
-    "date",
-    "content",
-    "description",
-  ]);
-
-  const content = await markdownToHtml(post.content)
+export const getStaticProps: GetStaticProps<Props, { slug: string }> = async ({ params }) => {
+  if (!params) throw new Error("Error Slug/Id Not Found");
+  const slug = params.slug;
+  const data = await client.getListDetail<BlogType>({
+    endpoint: "blog",
+    contentId: slug,
+  });
   return {
     props: {
-      post: {
-        ...post,
-        content
-      },
-      content,
+      post: data,
     },
   };
 };
 
-const Post: NextPage<Props> = ({ post, content }) => {
+const CmsPost: NextPage<Props> = ({ post }) => {
   const router = useRouter();
-  if (!router.isFallback && !post?.slug) {
-    return <ErrorPage statusCode={404} />
+  if (!router.isFallback && !post?.id) {
+    return <ErrorPage statusCode={404} />;
   }
   return (
-    <div>
+    <>
       <Head pageTitle={post.title} pageDescription={post.description} type="article" />
-        <Heading as="h1" size="2xl" marginY="1em">{post.title}</Heading>
       <article>
-        {RehypeReact(content) as ReactNode}
+        <ArticleTemplate html={post.content} />
       </article>
-    </div>
+    </>
   );
 };
 
-export default Post;
+export default CmsPost;

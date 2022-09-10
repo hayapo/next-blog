@@ -1,23 +1,30 @@
-import type { InferGetStaticPropsType, NextPage } from "next";
-import { Box } from "@chakra-ui/react"
-import { getAllPosts } from "../lib/readMarkdown";
-import { Head } from "../components/Head";
-import { ArticleList } from "../components/ArticleList";
+import { NextPage } from "next";
+import { Box } from "@chakra-ui/react";
+import { client } from "../lib/client";
+import React from "react";
+import type { BlogType } from "../types/blog";
+import { Head } from "@/components/Head";
+import { ArticleList } from "@/components/ArticleList";
 
-type Props = InferGetStaticPropsType<typeof getStaticProps>;
+type Props = {
+  posts: BlogType[];
+};
 
 export const getStaticProps = async () => {
-  const allPosts = getAllPosts(["slug", "title", "date", "tags", "description"]);
+  const data = await client.get({ endpoint: "blog" });
+
   return {
-    props: { allPosts },
+    props: {
+      posts: data.contents,
+    },
   };
 };
 
-const Home: NextPage<Props> = ({ allPosts }) => {
+const Home: NextPage<Props> = ({ posts }) => {
   return (
     <Box>
       <Head type="website" />
-      <ArticleList posts={allPosts} />
+      <ArticleList posts={posts} />
     </Box>
   );
 };
