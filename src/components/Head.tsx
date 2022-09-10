@@ -3,18 +3,13 @@ import NextHead from "next/head";
 import { siteMetadata } from "../lib/useSiteMetadata";
 
 type Props = {
-  pageTitle?: string
-  pageDescription?: string
-  type: "website" | "article"
-}
+  pageTitle?: string;
+  pageDescription?: string;
+  type: "website" | "article";
+};
 
-export const Head: NextPage<Props> = ({ pageTitle, pageDescription, type}) => {
-  const {
-    siteTitle,
-    siteDescription,
-    siteUrl,
-    ogpPath,
-  } = siteMetadata;
+export const Head: NextPage<Props> = ({ pageTitle, pageDescription, type }) => {
+  const { siteTitle, siteDescription, siteUrl, ogpPath } = siteMetadata;
   const title = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle;
   const description = pageDescription ? pageDescription : siteDescription;
   return (
@@ -27,11 +22,11 @@ export const Head: NextPage<Props> = ({ pageTitle, pageDescription, type}) => {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:site_name" content={siteTitle} />
-      <meta property="og:image" content={ogpPath} />
+      <meta property="og:image" content={`${ogpPath}/ogp.png`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <link rel="icon" href="/favicon.ico" />
     </NextHead>
-  )
-}
+  );
+};

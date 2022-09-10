@@ -34,11 +34,12 @@ const options: HTMLReactParserOptions = {
         return (
           <Heading
             as="h1"
-            size="3xl"
+            size="2xl"
             lineHeight="3.5rem"
             borderBottomWidth="4px"
             borderColor="teal.400"
-            marginY="2.0rem"
+            marginTop="5.0rem"
+            marginBottom="2.0rem"
             pb="4px"
             {...props}
           >
@@ -50,11 +51,12 @@ const options: HTMLReactParserOptions = {
         return (
           <Heading
             as="h2"
-            size="2xl"
-            lineHeight="2.5rem"
+            size="xl"
+            lineHeight="3rem"
             borderBottomWidth="4px"
             borderColor="teal.400"
-            marginY="2.0rem"
+            marginTop="5.0rem"
+            marginBottom="2.0rem"
             pb="4px"
             {...props}
           >
@@ -66,11 +68,12 @@ const options: HTMLReactParserOptions = {
         return (
           <Heading
             as="h3"
-            size="xl"
-            lineHeight="2rem"
+            size="lg"
+            lineHeight="2.5rem"
             borderBottomWidth="4px"
             borderColor="teal.400"
-            marginY="2.0rem"
+            marginTop="5.0rem"
+            marginBottom="2.0rem"
             pb="4px"
             {...props}
           >
@@ -82,11 +85,12 @@ const options: HTMLReactParserOptions = {
         return (
           <Heading
             as="h4"
-            size="lg"
+            size="md"
             lineHeight="1.5rem"
             borderBottomWidth="3px"
             borderColor="teal.400"
-            marginY="2.0rem"
+            marginTop="5.0rem"
+            marginBottom="2.0rem"
             pb="4px"
             {...props}
           >

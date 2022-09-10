@@ -9,4 +9,5 @@ export type BlogType = {
   title: string;
   description: string;
   tag: BlogTag[];
+  postedAt: string;
 } & MicroCMSListContent;
