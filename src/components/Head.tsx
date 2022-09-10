@@ -19,8 +19,8 @@ export const Head: NextPage<Props> = ({ pageTitle, pageDescription, type }) => {
       <meta name="description" content={description} />
       <meta property="og:url" content={siteUrl} />
       <meta property="og:type" content={type} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
+      <meta property="og:title" content={pageTitle || siteTitle} />
+      <meta property="og:description" content={pageDescription || siteDescription} />
       <meta property="og:site_name" content={siteTitle} />
       <meta property="og:image" content={`${ogpPath}/ogp.png`} />
       <meta property="og:image:width" content="1200" />
