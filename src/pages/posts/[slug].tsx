@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { Heading } from "@chakra-ui/react";
 
 import { markdownToHtml } from "../../lib/markdownToHtml";
-import { RehypeReact } from "../../lib/rehypeReact";
+import { RehypeReact } from "../../components/rehypeReact";
 import { Head } from "../../components/Head";
 import { getAllPosts, getPostBySlug } from "../../lib/readMarkdown";
 import type { PostType } from "../../interfaces/post";
