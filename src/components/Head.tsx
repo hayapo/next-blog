@@ -3,34 +3,34 @@ import NextHead from "next/head";
 import { siteMetadata } from "../lib/useSiteMetadata";
 
 type Props = {
-  title: string
+  pageTitle?: string
+  pageDescription?: string
+  type: "website" | "article"
 }
 
-export const Head: NextPage<Props> = ( {title} ) => {
+export const Head: NextPage<Props> = ({ pageTitle, pageDescription, type}) => {
   const {
     siteTitle,
     siteDescription,
     siteUrl,
-    siteType,
-  } = siteMetadata
+    ogpPath,
+  } = siteMetadata;
+  const title = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle;
+  const description = pageDescription ? pageDescription : siteDescription;
   return (
     <NextHead>
-      <title>{siteTitle ? `${title} | ${siteTitle}` : null}</title>
-      <meta
-        name="description"
-        content={siteDescription}
-      />
+      <title>{title}</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <meta name="description" content={description} />
       <meta property="og:url" content={siteUrl} />
-      <meta property="og:type" content={siteType} />
-      {title ? (
-        <meta property="og:title" content={title} />
-      ) : (
-        <meta property="og:title" content={siteTitle} />
-      )
-      }
-      <meta property="og:description" content={siteDescription} />
+      <meta property="og:type" content={type} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
       <meta property="og:site_name" content={siteTitle} />
-
+      <meta property="og:image" content={ogpPath} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta name="twitter:card" content="summary_large_image" />
       <link rel="icon" href="/favicon.ico" />
     </NextHead>
   )

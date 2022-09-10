@@ -1,10 +1,9 @@
 import type { InferGetStaticPropsType, NextPage } from "next";
-import {
-  Box,
-} from "@chakra-ui/react"
+import { Box } from "@chakra-ui/react"
 import { getAllPosts } from "../lib/readMarkdown";
 import { Head } from "../components/Head";
 import { ArticleList } from "../components/ArticleList";
+
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 export const getStaticProps = async () => {
@@ -17,7 +16,7 @@ export const getStaticProps = async () => {
 const Home: NextPage<Props> = ({ allPosts }) => {
   return (
     <Box>
-      <Head title="Top"/>
+      <Head type="website" />
       <ArticleList posts={allPosts} />
     </Box>
   );

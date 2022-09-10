@@ -2,19 +2,17 @@ import React, { ReactNode } from "react";
 import ErrorPage from "next/error";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import {
-  Heading,
-} from "@chakra-ui/react";
+import { Heading } from "@chakra-ui/react";
+
 import { markdownToHtml } from "../../lib/markdownToHtml";
 import { RehypeReact } from "../../lib/rehypeReact";
 import { Head } from "../../components/Head";
-
 import { getAllPosts, getPostBySlug } from "../../lib/readMarkdown";
 import type { PostType } from "../../interfaces/post";
 
 type Props = {
-  post: PostType,
-  content: string,
+  post: PostType;
+  content: string;
 }
 type Params = {
   params: {
@@ -42,7 +40,7 @@ export const getStaticProps = async ({ params }: Params) => {
     "title",
     "date",
     "content",
-    "discription",
+    "description",
   ]);
 
   const content = await markdownToHtml(post.content)
@@ -64,7 +62,7 @@ const Post: NextPage<Props> = ({ post, content }) => {
   }
   return (
     <div>
-      <Head title={post.title}/>
+      <Head pageTitle={post.title} pageDescription={post.description} type="article" />
         <Heading as="h1" size="2xl" marginY="1em">{post.title}</Heading>
       <article>
         {RehypeReact(content) as ReactNode}
