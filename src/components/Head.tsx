@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import NextHead from "next/head";
-import { siteMetadata } from "../lib/useSiteMetadata";
+import { siteMetadata } from "lib/useSiteMetadata";
 
 type Props = {
   pageTitle?: string;

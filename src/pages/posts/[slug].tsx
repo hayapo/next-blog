@@ -3,10 +3,10 @@ import React from "react";
 import ErrorPage from "next/error";
 import { useRouter } from "next/router";
 import { NextPage } from "next";
-import { Head } from "../../components/Head";
-import { client } from "../../lib/client";
-import type { BlogType } from "../../types/blog";
-import { ArticleTemplate } from "@/components/ArticleTemplate";
+import { Head } from "components/Head";
+import { client } from "lib/client";
+import type { BlogType } from "types/blog";
+import { ArticleTemplate } from "components/ArticleTemplate";
 
 type Props = {
   post: BlogType;
