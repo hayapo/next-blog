@@ -21,7 +21,7 @@ export const getStaticProps = async () => {
 };
 
 const Home: NextPage<Props> = ({ posts }) => {
-  posts = posts.sort((post1, post2) => (post1.postedAt > post2.postedAt ? -1 : 1));
+  posts.sort((post1, post2) => (post1.publishedAt > post2.publishedAt ? -1 : 1));
   return (
     <>
       <Head type="website" />

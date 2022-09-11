@@ -9,9 +9,14 @@ type Props = {
 
 export const ArticleList: React.FC<Props> = ({ posts }) => (
   <Box>
-    <Heading size="2xl" my="20px">
-      📄記事一覧
-    </Heading>
+    <Box display="flex" alignItems="center" gap="0.7rem">
+      <Heading size="2xl" my="20px">
+        📄
+      </Heading>
+      <Heading size="2xl" my="20px">
+        記事一覧
+      </Heading>
+    </Box>
     <VStack spacing="24px">
       {posts.map((post) => (
         <ArticleCard key={post.id} post={post} />

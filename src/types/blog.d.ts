@@ -1,6 +1,6 @@
 import type { MicroCMSListContent } from "microcms-js-sdk";
 
-export type BlogTag = {
+export type CategoryTag = {
   tagName: string;
 } & MicroCMSListContent;
 
@@ -8,6 +8,7 @@ export type BlogType = {
   content: string;
   title: string;
   description: string;
-  tag: BlogTag[];
-  postedAt: string;
+  isUpdated: boolean;
+  tag: CategoryTag[];
+  publishedAt: string;
 } & MicroCMSListContent;

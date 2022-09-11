@@ -9,7 +9,7 @@ type Props = {
 };
 
 export const ArticleCard: React.FC<Props> = ({ post }) => {
-  const postDate = dateTime(post.postedAt);
+  const publishDate = dateTime(post.publishedAt);
   const updateDate = dateTime(post.updatedAt);
   return (
     <LinkBox
@@ -37,8 +37,16 @@ export const ArticleCard: React.FC<Props> = ({ post }) => {
           </LinkOverlay>
         </NextLink>
         <Box display="flex" alignItems="center" gap="1.5rem">
-          <Text fontSize="lg">📅 {postDate}</Text>
-          <Text fontSize="lg">🔄 {updateDate}</Text>
+          <Box display="flex" alignItems="center" gap="0.15rem">
+            <Text fontSize="lg">📅</Text>
+            <Text fontSize="lg">{publishDate}</Text>
+          </Box>
+          {post.isUpdated && (
+            <Box display="flex" alignItems="center" gap="0.15rem">
+              <Text fontSize="lg">🔄</Text>
+              <Text fontSize="lg">{updateDate}</Text>
+            </Box>
+          )}
         </Box>
         <Text as="p" fontSize="md">
           {post.description}
