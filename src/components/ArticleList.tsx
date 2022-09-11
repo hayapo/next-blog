@@ -1,22 +1,23 @@
 import React from "react";
 import { ArticleCard } from "./ArticleCard";
-import { Box, VStack, Heading } from "@chakra-ui/react";
-import type { BlogType } from "../types/blog";
+import { Box, VStack, Heading, HStack } from "@chakra-ui/react";
+import type { BlogType } from "types/blog";
 
 type Props = {
   posts: BlogType[];
+  listTitle?: string;
 };
 
-export const ArticleList: React.FC<Props> = ({ posts }) => (
+export const ArticleList: React.FC<Props> = ({ posts, listTitle = "記事一覧" }) => (
   <Box>
-    <Box display="flex" alignItems="center" gap="0.7rem">
-      <Heading size="2xl" my="20px">
-        📄
+    <HStack alignItems="center" spacing="0.7rem">
+      <Heading size="xl" my="20px">
+        {listTitle === "記事一覧" ? "📄" : "🏷️"}
       </Heading>
       <Heading size="2xl" my="20px">
-        記事一覧
+        {listTitle}
       </Heading>
-    </Box>
+    </HStack>
     <VStack spacing="24px">
       {posts.map((post) => (
         <ArticleCard key={post.id} post={post} />

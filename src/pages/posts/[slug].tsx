@@ -3,14 +3,47 @@ import React from "react";
 import ErrorPage from "next/error";
 import { useRouter } from "next/router";
 import { NextPage } from "next";
-import { Head } from "../../components/Head";
-import { client } from "../../lib/client";
-import type { BlogType } from "../../types/blog";
-import { ArticleTemplate } from "@/components/ArticleTemplate";
+import { Box } from "@chakra-ui/react";
+import { client } from "lib/client";
+import { Head } from "components/Head";
+import { ArticleTemplate } from "components/ArticleTemplate";
+import { TagLink } from "components/TagLink";
+import type { BlogType } from "types/blog";
 
 type Props = {
   post: BlogType;
 };
+
+const CmsPost: NextPage<Props> = ({ post }) => {
+  const router = useRouter();
+  if (!router.isFallback && !post?.id) {
+    return <ErrorPage statusCode={404} />;
+  }
+  return (
+    <>
+      <Head pageTitle={post.title} pageDescription={post.description} type="article" />
+      {post.tag && (
+        <Box
+          marginTop="1rem"
+          marginBottom="2rem"
+          display="flex"
+          flexWrap="wrap"
+          justifyContent="flex-start"
+          gap="0.5rem"
+        >
+          {post.tag.map((x) => (
+            <TagLink key={x.id} tag={x} />
+          ))}
+        </Box>
+      )}
+      <article>
+        <ArticleTemplate html={post.content} />
+      </article>
+    </>
+  );
+};
+
+export default CmsPost;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const data = await client.getList<BlogType>({
@@ -46,20 +79,3 @@ export const getStaticProps: GetStaticProps<Props, { slug: string }> = async ({ 
     },
   };
 };
-
-const CmsPost: NextPage<Props> = ({ post }) => {
-  const router = useRouter();
-  if (!router.isFallback && !post?.id) {
-    return <ErrorPage statusCode={404} />;
-  }
-  return (
-    <>
-      <Head pageTitle={post.title} pageDescription={post.description} type="article" />
-      <article>
-        <ArticleTemplate html={post.content} />
-      </article>
-    </>
-  );
-};
-
-export default CmsPost;

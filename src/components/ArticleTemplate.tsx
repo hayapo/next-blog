@@ -13,14 +13,14 @@ import {
   UnorderedList,
   OrderedList,
 } from "@chakra-ui/react";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { tomorrowNight } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import parse, {
   attributesToProps,
   Element,
   domToReact,
   HTMLReactParserOptions,
 } from "html-react-parser";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { tomorrowNight } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 type ArticleTemplateType = {
   html: string;
