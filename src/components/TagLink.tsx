@@ -9,7 +9,7 @@ export const TagLink: React.FC<{ tag: CategoryTag }> = ({ tag }) => {
     <NextLink key={tag.id} href={`/tag/${tag.id}/page/1`} passHref>
       <ChakraLink>
         <Tag variant="solid" colorScheme="teal" rounded="full">
-          <HStack spacing="0.1em" paddingY="0.2rem" paddingRight="0.2rem" alignItems="center">
+          <HStack spacing="0.1em" paddingY="0.2rem" paddingRight="0.2rem">
             <TagLabel fontWeight="semibold" padding="2px">
               <AiFillTag />
             </TagLabel>

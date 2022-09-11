@@ -15,7 +15,7 @@ type Props = {
 const TagId: NextPage<Props> = ({ posts, totalCount, currentPage, tag }) => {
   return (
     <Box>
-      <ArticleList posts={posts} />
+      <ArticleList posts={posts} listTitle={tag.tagName} />
       <Pagination totalCount={totalCount} currentPage={currentPage} tagId={tag.id} />
     </Box>
   );
@@ -57,7 +57,6 @@ const getAllTagPagePaths = async () => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await getAllTagPagePaths();
-  console.log(paths);
   return { paths, fallback: false };
 };
 

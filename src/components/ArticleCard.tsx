@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex, LinkOverlay, LinkBox, Text, useColorModeValue, HStack } from "@chakra-ui/react";
+import { Box, Flex, LinkOverlay, LinkBox, Text, useColorModeValue } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { dateTime } from "lib/dateTime";
 import type { BlogType } from "types/blog";
@@ -38,11 +38,11 @@ export const ArticleCard: React.FC<Props> = ({ post }) => {
           </LinkOverlay>
         </NextLink>
         {post.tag && (
-          <HStack>
+          <Box display="flex" flexWrap="wrap" justifyContent="flex-start" gap="0.5rem">
             {post.tag.map((x) => (
               <TagLink key={x.id} tag={x} />
             ))}
-          </HStack>
+          </Box>
         )}
         <Box display="flex" alignItems="center" gap="1.5rem">
           <Box display="flex" alignItems="center" gap="0.15rem">
