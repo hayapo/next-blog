@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex, LinkOverlay, LinkBox, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Flex, LinkOverlay, LinkBox, Text } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { dateTime } from "lib/dateTime";
 import type { BlogType } from "types/blog";
@@ -59,16 +59,6 @@ export const ArticleCard: React.FC<Props> = ({ post }) => {
         <Text as="p" fontSize="md">
           {post.description}
         </Text>
-        <Box
-          _hover={{ opacity: 0.5 }}
-          color={useColorModeValue("teal.600", "teal.400")}
-          rounded="md"
-          fontWeight="bold"
-        >
-          <NextLink href={`/posts/${post.id}`} passHref>
-            続きを読む
-          </NextLink>
-        </Box>
       </Flex>
     </LinkBox>
   );
