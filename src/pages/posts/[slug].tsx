@@ -9,12 +9,14 @@ import { Head } from "components/Head";
 import { ArticleTemplate } from "components/ArticleTemplate";
 import { TagLink } from "components/TagLink";
 import type { BlogType } from "types/blog";
+import { markdownToHtml } from "lib/markdownToHtml";
 
 type Props = {
   post: BlogType;
+  body: string;
 };
 
-const CmsPost: NextPage<Props> = ({ post }) => {
+const CmsPost: NextPage<Props> = ({ post, body }) => {
   const router = useRouter();
   if (!router.isFallback && !post?.id) {
     return <ErrorPage statusCode={404} />;
@@ -37,7 +39,7 @@ const CmsPost: NextPage<Props> = ({ post }) => {
         </Box>
       )}
       <article>
-        <ArticleTemplate html={post.content} />
+        <ArticleTemplate html={body} />
       </article>
     </>
   );
@@ -73,9 +75,11 @@ export const getStaticProps: GetStaticProps<Props, { slug: string }> = async ({ 
     endpoint: "blog",
     contentId: slug,
   });
+  const htmlContent = await markdownToHtml(data.content.body);
   return {
     props: {
       post: data,
+      body: htmlContent,
     },
   };
 };

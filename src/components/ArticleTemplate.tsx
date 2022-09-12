@@ -19,8 +19,8 @@ import parse, {
   domToReact,
   HTMLReactParserOptions,
 } from "html-react-parser";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { tomorrowNight } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { tomorrow } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 type ArticleTemplateType = {
   html: string;
@@ -133,6 +133,13 @@ const options: HTMLReactParserOptions = {
         );
       }
       if (domNode.attribs && domNode.name === "li") {
+        const child = domNode.childNodes[0] as Element;
+        if (child.name === "input")
+          return (
+            <ListItem listStyleType="none" {...props} marginLeft="-2rem">
+              {domToReact(domNode.children, options)}
+            </ListItem>
+          );
         return <ListItem {...props}>{domToReact(domNode.children, options)}</ListItem>;
       }
       if (domNode.attribs && domNode.name === "table") {
@@ -181,15 +188,18 @@ const options: HTMLReactParserOptions = {
       if (domNode.attribs && domNode.name === "code") {
         const parent = domNode.parentNode as Element;
         if (parent.name === "pre") {
+          const lang = /language-(\w+)/.exec(domNode.attribs.class || "");
+          const language = lang ? lang[1] : "";
           return (
-            <Box as="code" className="SyntaxHighlighter">
+            <Box as="code" className="prismjs">
               <SyntaxHighlighter
                 customStyle={{
                   width: "100%",
                   padding: "1.5rem",
                   borderRadius: "10px",
                 }}
-                style={tomorrowNight}
+                language={language}
+                style={tomorrow}
               >
                 {domToReact(domNode.children, options) as string}
               </SyntaxHighlighter>
@@ -197,7 +207,7 @@ const options: HTMLReactParserOptions = {
           );
         } else {
           return (
-            <ChakraCode marginX="0.2em" {...props}>
+            <ChakraCode paddingX="5px" marginX="5px" borderRadius="5px" {...props}>
               {domToReact(domNode.children) as string}
             </ChakraCode>
           );
