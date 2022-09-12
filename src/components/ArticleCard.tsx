@@ -30,8 +30,8 @@ export const ArticleCard: React.FC<Props> = ({ post }) => {
       }}
     >
       <Flex flexDirection="column" gap="15px">
-        <NextLink href={`/posts/${post.id}`} passHref>
-          <LinkOverlay href={`/posts/${post.id}`}>
+        <NextLink href={`/posts/${post.id}`} rel="preload" passHref>
+          <LinkOverlay href={`/posts/${post.id}`} rel="preload">
             <Text fontSize={"2xl"} fontWeight={"bold"}>
               {post.title}
             </Text>
