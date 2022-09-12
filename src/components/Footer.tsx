@@ -4,50 +4,70 @@ import {
   Container,
   HStack,
   Link,
-  Stack,
+  VStack,
   Text,
   Flex,
   StackDivider,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { GrReactjs } from "react-icons/gr";
-import { SiChakraui, SiNextdotjs } from "react-icons/si"
+import { SiChakraui, SiNextdotjs } from "react-icons/si";
 
 export const Footer: React.FC = () => (
-  <Box
-    as="footer"
-    my="4"
-    h="10rem"
-  >
+  <Box as="footer">
     <Container
-      as={Stack}
-      maxW={{ base: 'full', md: "container.xl"}}
-      justify={'center'}
-      align={'center'}
-      fontSize={{ base: 'sm', md:'md' }}
+      as={VStack}
+      display="flex"
+      maxW={{ base: "full", md: "container.xl" }}
+      justifyContent="center"
+      alignItems="center"
+      fontSize={{ base: "sm", md: "md" }}
       spacing={1}
-      px='0'
+      px="0"
+      marginY="2rem"
     >
-      <Text>
-        © {new Date().getFullYear()} hayapo
-      </Text>
-      <Text>
-        Built with
-      </Text>
-      <Container as={HStack} justify={'center'} align={'center'} divider={<StackDivider borderColor='gray.200' />}>
+      <Text>© {new Date().getFullYear()} hayapo</Text>
+      <Text>Built with</Text>
+      <Container
+        as={HStack}
+        justify={"center"}
+        align={"center"}
+        divider={<StackDivider borderColor="gray.200" />}
+      >
         <Flex alignItems="center" gap="0.5">
-          <GrReactjs color={'#26A69A'}/>
-          <Link isExternal href='https://reactjs.org/' fontWeight="bold" color={useColorModeValue('teal.500', 'teal.400')} >React</Link>
+          <GrReactjs color={"#26A69A"} />
+          <Link
+            isExternal
+            href="https://reactjs.org/"
+            fontWeight="bold"
+            color={useColorModeValue("teal.500", "teal.400")}
+          >
+            React
+          </Link>
         </Flex>
         <Flex alignItems="center" gap="0.5">
-          <SiNextdotjs color={'#26A69A'} />
-          <Link isExternal href='https://nextjs.org/' fontWeight="bold" color={useColorModeValue('teal.500', 'teal.400')} >Next.JS</Link>
+          <SiNextdotjs color={"#26A69A"} />
+          <Link
+            isExternal
+            href="https://nextjs.org/"
+            fontWeight="bold"
+            color={useColorModeValue("teal.500", "teal.400")}
+          >
+            Next.JS
+          </Link>
         </Flex>
         <Flex alignItems="center" gap="0.5">
-          <SiChakraui color={'#26A69A'} />
-          <Link isExternal href='https://chakra-ui.com/' fontWeight="bold" color={useColorModeValue('teal.500', 'teal.400')} >Chakra UI</Link>
+          <SiChakraui color={"#26A69A"} />
+          <Link
+            isExternal
+            href="https://chakra-ui.com/"
+            fontWeight="bold"
+            color={useColorModeValue("teal.500", "teal.400")}
+          >
+            Chakra UI
+          </Link>
         </Flex>
       </Container>
     </Container>
   </Box>
-)
+);
