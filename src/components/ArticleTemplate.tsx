@@ -20,7 +20,7 @@ import parse, {
   HTMLReactParserOptions,
 } from "html-react-parser";
 import highlight from "highlight.js";
-import "highlight.js/styles/base16/material.css";
+import "highlight.js/styles/base16/material-darker.css";
 
 type ArticleTemplateType = {
   html: string;
@@ -188,16 +188,14 @@ const options: HTMLReactParserOptions = {
       if (domNode.attribs && domNode.name === "code") {
         const parent = domNode.parentNode as Element;
         if (parent.name === "pre") {
-          const languageSubset = ["js", "html", "css", "xml", "typescript", "python"];
+          const languageSubset = ["js", "html", "css", "xml", "typescript", "python", "rust", "go"];
           const highlightCode = highlight.highlightAuto(
             domToReact(domNode.children) as string,
             languageSubset,
           ).value;
           return (
-            <Box as="code">
-              <Box padding="2.5rem" className="hljs" borderRadius="15px">
-                {parse(highlightCode)}
-              </Box>
+            <Box as="code" className="hljs" borderRadius="15px">
+              <Box padding="1.5rem">{parse(highlightCode)}</Box>
             </Box>
           );
         } else {
