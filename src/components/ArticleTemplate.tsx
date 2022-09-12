@@ -20,7 +20,7 @@ import parse, {
   HTMLReactParserOptions,
 } from "html-react-parser";
 import highlight from "highlight.js";
-import "highlight.js/styles/base16/material-darker.css";
+import "highlight.js/styles/base16/material.css";
 
 type ArticleTemplateType = {
   html: string;
@@ -198,7 +198,6 @@ const options: HTMLReactParserOptions = {
               <Box padding="2.5rem" className="hljs" borderRadius="15px">
                 {parse(highlightCode)}
               </Box>
-
             </Box>
           );
         } else {
