@@ -5,10 +5,7 @@ export type CategoryTag = {
 } & MicroCMSListContent;
 
 export type BlogType = {
-  content: {
-    fieldId: string;
-    body: string;
-  };
+  content: string;
   title: string;
   description: string;
   isUpdated: boolean;
