@@ -19,8 +19,8 @@ import parse, {
   domToReact,
   HTMLReactParserOptions,
 } from "html-react-parser";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { tomorrowNight } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import highlight from "highlight.js";
+import "highlight.js/styles/base16/material-darker.css";
 
 type ArticleTemplateType = {
   html: string;
@@ -170,29 +170,27 @@ const options: HTMLReactParserOptions = {
           <Image
             border="1px"
             borderColor="gray.400"
+            marginY="2rem"
+            marginX="auto"
             src={domNode.attribs.src}
             alt={domNode.attribs.alt}
             {...props}
-          >
-            {domToReact(domNode.children, options)}
-          </Image>
+          />
         );
       }
       if (domNode.attribs && domNode.name === "code") {
         const parent = domNode.parentNode as Element;
         if (parent.name === "pre") {
+          const languageSubset = ["js", "html", "css", "xml", "typescript", "python"];
+          const highlightCode = highlight.highlightAuto(
+            domToReact(domNode.children) as string,
+            languageSubset,
+          ).value;
           return (
-            <Box as="code" className="SyntaxHighlighter">
-              <SyntaxHighlighter
-                customStyle={{
-                  width: "100%",
-                  padding: "1.5rem",
-                  borderRadius: "10px",
-                }}
-                style={tomorrowNight}
-              >
-                {domToReact(domNode.children, options) as string}
-              </SyntaxHighlighter>
+            <Box as="code">
+              <Box padding="2.5rem" className="hljs" borderRadius="15px">
+                {parse(highlightCode)}
+              </Box>
             </Box>
           );
         } else {

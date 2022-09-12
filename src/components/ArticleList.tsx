@@ -11,7 +11,7 @@ type Props = {
 export const ArticleList: React.FC<Props> = ({ posts, listTitle = "記事一覧" }) => (
   <Box>
     <HStack alignItems="center" spacing="0.7rem">
-      <Heading size="xl" my="20px">
+      <Heading size="xl" my="2.5rem">
         {listTitle === "記事一覧" ? "📄" : "🏷️"}
       </Heading>
       <Heading size="2xl" my="20px">
