@@ -27,7 +27,7 @@ const CmsPost: NextPage<Props> = ({ post, body }) => {
       {post.tag && (
         <Box
           marginTop="3rem"
-          marginBottom="2rem"
+          marginBottom="-3rem"
           display="flex"
           flexWrap="wrap"
           justifyContent="flex-start"
