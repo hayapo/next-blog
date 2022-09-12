@@ -133,6 +133,13 @@ const options: HTMLReactParserOptions = {
         );
       }
       if (domNode.attribs && domNode.name === "li") {
+        const child = domNode.childNodes[0] as Element;
+        if (child.name === "input")
+          return (
+            <ListItem listStyleType="none" {...props} marginLeft="-2rem">
+              {domToReact(domNode.children, options)}
+            </ListItem>
+          );
         return <ListItem {...props}>{domToReact(domNode.children, options)}</ListItem>;
       }
       if (domNode.attribs && domNode.name === "table") {
@@ -191,11 +198,12 @@ const options: HTMLReactParserOptions = {
               <Box padding="2.5rem" className="hljs" borderRadius="15px">
                 {parse(highlightCode)}
               </Box>
+
             </Box>
           );
         } else {
           return (
-            <ChakraCode marginX="0.2em" {...props}>
+            <ChakraCode paddingX="5px" marginX="5px" borderRadius="5px" {...props}>
               {domToReact(domNode.children) as string}
             </ChakraCode>
           );
