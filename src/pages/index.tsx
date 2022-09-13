@@ -1,8 +1,8 @@
 import { NextPage } from "next";
 import { Box } from "@chakra-ui/react";
-import { client } from "../lib/client";
+import { client } from "lib/client";
 import React from "react";
-import type { BlogType } from "../types/blog";
+import type { BlogType } from "types/blog";
 import { Head } from "components/Head";
 import { ArticleList } from "components/ArticleList";
 import { Pagination, PER_PAGE } from "components/Pagination";

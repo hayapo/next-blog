@@ -1,5 +1,5 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
-import { config } from "../lib/theme";
+import { config } from "lib/theme";
 import React from "react";
 import { AppProps } from "next/app";
 import Layout from "components/Layout";
