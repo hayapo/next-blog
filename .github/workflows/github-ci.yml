@@ -1,0 +1,42 @@
+name: SimpleCI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Lint Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: |
+          echo "Running Installing Dependencies ..."
+          npm install
+      - name: Run Linting
+        run: |
+          echo "Running Linting tests ..."
+          yarn run lint:eslint
+        env:
+          CI: true
+
+  build:
+    name: Build Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: |
+          echo "Running Installing Dependencies ..."
+          npm install
+      - name: Run Building
+        run: |
+          echo "Running Linting tests ..."
+          yarn run build
+        env:
+          CI: true
