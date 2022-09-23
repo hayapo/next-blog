@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint:next": "next lint --dir src",
+    "lint:eslint": "eslint ./src/**/*.{js,ts,tsx}",
+    "format:src": "prettier --write src/",
+    "format:all": "prettier --write \"**/*.+(js|json|yml|ts|tsx)\""
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.9",
