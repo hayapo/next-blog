@@ -43,4 +43,4 @@ jobs:
         env:
           CI: true
           NEXT_PUBLIC_microCMS_SERVIVEDOMAIN: ${{secrets.NEXT_PUBLIC_microCMS_SERVIVEDOMAIN}}
-          NEXT_PUBLIC_microCMS_APIKEY: ${{sectrets.NEXT_PUBLIC_microCMS_APIKEY}}
+          NEXT_PUBLIC_microCMS_APIKEY: ${{secrets.NEXT_PUBLIC_microCMS_APIKEY}}
