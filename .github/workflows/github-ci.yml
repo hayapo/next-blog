@@ -26,6 +26,8 @@ jobs:
 
   build:
     name: Build Test
+    environment:
+      name: microCMS
     runs-on: ubuntu-latest
     steps:
       - name: Clone Repository
@@ -40,3 +42,5 @@ jobs:
           yarn run build
         env:
           CI: true
+          NEXT_PUBLIC_microCMS_SERVIVEDOMAIN: ${{secrets.NEXT_PUBLIC_microCMS_SERVIVEDOMAIN}}
+          NEXT_PUBLIC_microCMS_APIKEY: ${{sectrets.NEXT_PUBLIC_microCMS_APIKEY}}
