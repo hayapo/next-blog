@@ -12,7 +12,7 @@
     "format:all": "prettier --write \"**/*.+(js|json|yml|ts|tsx)\""
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.9",
+    "@chakra-ui/icons": "^2.0.10",
     "@chakra-ui/react": "^2.3.1",
     "@chakra-ui/theme-tools": "^2.0.11",
     "@emotion/react": "^11.10.4",
@@ -51,6 +51,6 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-react": "^7.31.6",
     "prettier": "^2.7.1",
-    "typescript": "^4.8.2"
+    "typescript": "^4.8.3"
   }
 }
