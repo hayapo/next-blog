@@ -1039,9 +1039,9 @@
   version "0.7.31"
   resolved "https://registry.npmjs.org/@types/ms/-/ms-0.7.31.tgz"
 
-"@types/node@^18.7.14":
-  version "18.7.14"
-  resolved "https://registry.npmjs.org/@types/node/-/node-18.7.14.tgz"
+"@types/node@^18.7.23":
+  version "18.7.23"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.23.tgz#75c580983846181ebe5f4abc40fe9dfb2d65665f"
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
