@@ -41,8 +41,8 @@ jobs:
       - name: Run Building
         env:
           CI: true
-          NEXT_PUBLIC_microCMS_SERVICEDOMAIN: ${{secrets.NEXT_PUBLIC_microCMS_SERVICEDOMAIN}}
-          NEXT_PUBLIC_microCMS_APIKEY: ${{secrets.NEXT_PUBLIC_microCMS_APIKEY}}
+          NEXT_PUBLIC_microCMS_SERVICEDOMAIN: ${{secrets.NEXT_PUBLIC_MICROCMS_SERVICEDOMAIN}}
+          NEXT_PUBLIC_microCMS_APIKEY: ${{secrets.NEXT_PUBLIC_MICROCMS_APIKEY}}
         run: |
           echo "Running Linting tests ..."
           yarn run build
