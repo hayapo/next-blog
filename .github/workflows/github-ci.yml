@@ -39,10 +39,10 @@ jobs:
           echo "Running Installing Dependencies ..."
           npm install
       - name: Run Building
+        env:
+          CI: true
+          NEXT_PUBLIC_microCMS_SERVICEDOMAIN: ${{secrets.NEXT_PUBLIC_MICROCMS_SERVICEDOMAIN}}
+          NEXT_PUBLIC_microCMS_APIKEY: ${{secrets.NEXT_PUBLIC_MICROCMS_APIKEY}}
         run: |
           echo "Running Linting tests ..."
           yarn run build
-        env:
-          CI: true
-          NEXT_PUBLIC_microCMS_SERVIVEDOMAIN: ${{secrets.NEXT_PUBLIC_microCMS_SERVIVEDOMAIN}}
-          NEXT_PUBLIC_microCMS_APIKEY: ${{secrets.NEXT_PUBLIC_microCMS_APIKEY}}
