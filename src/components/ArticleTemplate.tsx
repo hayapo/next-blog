@@ -19,8 +19,27 @@ import parse, {
   domToReact,
   HTMLReactParserOptions,
 } from "html-react-parser";
-import highlight from "highlight.js";
+import hljs from "highlight.js/lib/core";
+import css from "highlight.js/lib/languages/css";
+import javascript from "highlight.js/lib/languages/javascript";
+import python from "highlight.js/lib/languages/python";
+import typescript from "highlight.js/lib/languages/typescript";
+import go from "highlight.js/lib/languages/go";
+import rust from "highlight.js/lib/languages/rust";
+import elm from "highlight.js/lib/languages/elm";
+import kotlin from "highlight.js/lib/languages/kotlin";
+import xml from "highlight.js/lib/languages/xml";
 import "highlight.js/styles/base16/material-darker.css";
+
+hljs.registerLanguage("javascript", javascript);
+hljs.registerLanguage("css", css);
+hljs.registerLanguage("typescript", typescript);
+hljs.registerLanguage("python", python);
+hljs.registerLanguage("go", go);
+hljs.registerLanguage("rust", rust);
+hljs.registerLanguage("elm", elm);
+hljs.registerLanguage("kotlin", kotlin);
+hljs.registerLanguage("xml", xml);
 
 type ArticleTemplateType = {
   html: string;
@@ -188,8 +207,19 @@ const options: HTMLReactParserOptions = {
       if (domNode.attribs && domNode.name === "code") {
         const parent = domNode.parentNode as Element;
         if (parent.name === "pre") {
-          const languageSubset = ["js", "html", "css", "xml", "typescript", "python", "rust", "go"];
-          const highlightCode = highlight.highlightAuto(
+          const languageSubset = [
+            "js",
+            "html",
+            "css",
+            "xml",
+            "typescript",
+            "python",
+            "rust",
+            "go",
+            "elm",
+            "kotlin",
+          ];
+          const highlightCode = hljs.highlightAuto(
             domToReact(domNode.children) as string,
             languageSubset,
           ).value;
