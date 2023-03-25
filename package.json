@@ -22,11 +22,7 @@
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "dayjs": "^1.11.5",
-<<<<<<< HEAD
     "framer-motion": "^10.9.1",
-=======
-    "framer-motion": "^10.8.5",
->>>>>>> 00db03d03fd5b5b8389c7e55ce4b06f7aa47a025
     "highlight.js": "^11.6.0",
     "html-react-parser": "^3.0.4",
     "microcms-js-sdk": "^2.2.1",
@@ -50,13 +46,9 @@
     "eslint-config-next": "12.3.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.27.5",
-<<<<<<< HEAD
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.3.0",
-=======
-    "eslint-plugin-react": "^7.32.2",
->>>>>>> 00db03d03fd5b5b8389c7e55ce4b06f7aa47a025
     "prettier": "^2.7.1",
     "typescript": "^4.8.4"
   }
