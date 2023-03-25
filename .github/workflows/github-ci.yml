@@ -30,7 +30,7 @@ jobs:
       - name: Run Lint Test
         run: |
           echo "Running Linting tests ..."
-          pnpm run lint
+          pnpm run lint:eslint
         env:
           CI: true
 
