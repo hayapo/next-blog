@@ -14,15 +14,23 @@ jobs:
       name: Publish
     steps:
       - name: Clone Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7.28.0
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
       - name: Install Dependencies
         run: |
           echo "Running Installing Dependencies ..."
-          npm install
-      - name: Run Linting
+          pnpm i --frozen-lockfile
+      - name: Run Lint Test
         run: |
           echo "Running Linting tests ..."
-          yarn run lint:eslint
+          pnpm run lint
         env:
           CI: true
 
@@ -33,11 +41,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7.28.0
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
       - name: Install Dependencies
         run: |
           echo "Running Installing Dependencies ..."
-          npm install
+          pnpm i --frozen-lockfile
       - name: Run Building
         env:
           CI: true
@@ -45,4 +61,4 @@ jobs:
           NEXT_PUBLIC_microCMS_APIKEY: ${{secrets.NEXT_PUBLIC_MICROCMS_APIKEY}}
         run: |
           echo "Running Linting tests ..."
-          yarn run build
+          pnpm run build
