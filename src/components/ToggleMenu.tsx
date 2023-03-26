@@ -10,27 +10,27 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { FaTwitter, FaGithub } from 'react-icons/fa';
+import { FaTwitter } from "@react-icons/all-files/fa/FaTwitter";
+import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 
 export const ToggleMenu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const handleToggle = () => (isOpen ? onClose() : onOpen());
 
   return (
-    <Menu onClose={onClose} >
-      <Box >
+    <Menu onClose={onClose}>
+      <Box>
         <MenuButton
           as={IconButton}
           onClick={handleToggle}
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-          bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
-        >
-        </MenuButton>
-        <MenuList  maxW='10px' onClick={handleToggle}>
+          bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
+        ></MenuButton>
+        <MenuList maxW="10px" onClick={handleToggle}>
           <MenuItem
             as="a"
             icon={<FaGithub />}
-            command='Github'
+            command="Github"
             href={`https://github.com/hayapo`}
             target="_blank"
             rel="external noopener noreferrer"
@@ -38,7 +38,7 @@ export const ToggleMenu = () => {
           <MenuItem
             as="a"
             icon={<FaTwitter />}
-            command='Twitter'
+            command="Twitter"
             href={`https://twitter.com/hayapo_hip`}
             target="_blank"
             rel="external noopener noreferrer"
@@ -46,7 +46,7 @@ export const ToggleMenu = () => {
         </MenuList>
       </Box>
     </Menu>
-  )
-}
+  );
+};
 
 export default ToggleMenu;

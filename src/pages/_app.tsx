@@ -1,11 +1,8 @@
 import React from "react";
-import { extendBaseTheme } from "@chakra-ui/react";
 import { ChakraProvider as ChakraBaseProvider } from "@chakra-ui/provider";
-import { config } from "lib/theme";
+import { theme } from "lib/theme";
 import { AppProps } from "next/app";
 import Layout from "components/Layout";
-
-const theme = extendBaseTheme({ config });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

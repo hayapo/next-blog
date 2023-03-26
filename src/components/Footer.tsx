@@ -10,8 +10,8 @@ import {
   StackDivider,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { GrReactjs } from "react-icons/gr";
-import { SiChakraui, SiNextdotjs } from "react-icons/si";
+import { GrReactjs } from "@react-icons/all-files/gr/GrReactjs";
+import { SiNextDotJs } from "@react-icons/all-files/si/SiNextDotJs";
 
 export const Footer: React.FC = () => (
   <Box as="footer">
@@ -46,7 +46,7 @@ export const Footer: React.FC = () => (
           </Link>
         </Flex>
         <Flex alignItems="center" gap="0.5">
-          <SiNextdotjs color={"#26A69A"} />
+          <SiNextDotJs color={"#26A69A"} />
           <Link
             isExternal
             href="https://nextjs.org/"
@@ -57,7 +57,6 @@ export const Footer: React.FC = () => (
           </Link>
         </Flex>
         <Flex alignItems="center" gap="0.5">
-          <SiChakraui color={"#26A69A"} />
           <Link
             isExternal
             href="https://chakra-ui.com/"

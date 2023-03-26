@@ -1,7 +1,7 @@
 import { HStack, Link as ChakraLink, Tag, TagLabel } from "@chakra-ui/react";
 import NextLink from "next/link";
 import React from "react";
-import { AiFillTag } from "react-icons/ai";
+import { AiFillTag } from "@react-icons/all-files/ai/AiFillTag";
 import type { CategoryTag } from "types/blog";
 
 export const TagLink: React.FC<{ tag: CategoryTag }> = ({ tag }) => {

@@ -4,18 +4,19 @@ import {
   Stack,
   Heading,
   Flex,
-  useDisclosure,
-  useColorModeValue,
   Container,
   IconButton,
-  useColorMode,
   chakra,
   Link as cLink,
   VisuallyHidden,
+  useDisclosure,
+  useColorMode,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-import { FaTwitter, FaGithub } from "react-icons/fa";
+import { FaTwitter } from "@react-icons/all-files/fa/FaTwitter";
+import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 import { ToggleMenu } from "./ToggleMenu";
 
 type Props = {
