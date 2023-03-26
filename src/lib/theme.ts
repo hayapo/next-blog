@@ -10,6 +10,7 @@ import {
   Menu as MenuTheme,
   Divider as DividerTheme,
   Tag as TagTheme,
+  Badge as BadgeTheme,
   Code as CodeTheme,
 } from "@chakra-ui/theme/components";
 
@@ -29,7 +30,8 @@ export const theme = extendBaseTheme({
     Link: LinkTheme,
     Menu: MenuTheme,
     Divider: DividerTheme,
-    Tag: TagTheme,
     Code: CodeTheme,
+    Badge: BadgeTheme,
+    Tag: TagTheme,
   },
 });

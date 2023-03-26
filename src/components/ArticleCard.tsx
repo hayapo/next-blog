@@ -17,8 +17,8 @@ export const ArticleCard: React.FC<Props> = ({ post }) => {
       as="article"
       w="full"
       p="20px"
-      borderWidth="1px"
-      borderColor="gray.400"
+      borderWidth="2px"
+      borderColor="blue.300"
       rounded="lg"
       _hover={{
         backgroundColor: "gray.100",
@@ -38,7 +38,7 @@ export const ArticleCard: React.FC<Props> = ({ post }) => {
           </LinkOverlay>
         </NextLink>
         {post.tag && (
-          <Box display="flex" flexWrap="wrap" justifyContent="flex-start" gap="0.5rem">
+          <Box display="flex" flexWrap="wrap" justifyContent="flex-start" gap="0.25rem">
             {post.tag.map((x) => (
               <TagLink key={x.id} tag={x} />
             ))}

@@ -35,23 +35,23 @@ export const Footer: React.FC = () => (
         divider={<StackDivider borderColor="gray.200" />}
       >
         <Flex alignItems="center" gap="0.5">
-          <GrReactjs color={"#26A69A"} />
+          <GrReactjs color={"#3182ce"} />
           <Link
             isExternal
             href="https://reactjs.org/"
             fontWeight="bold"
-            color={useColorModeValue("teal.500", "teal.400")}
+            color={useColorModeValue("blue.500", "blue.400")}
           >
             React
           </Link>
         </Flex>
         <Flex alignItems="center" gap="0.5">
-          <SiNextDotJs color={"#26A69A"} />
+          <SiNextDotJs color={"#3182ce"} />
           <Link
             isExternal
             href="https://nextjs.org/"
             fontWeight="bold"
-            color={useColorModeValue("teal.500", "teal.400")}
+            color={useColorModeValue("blue.500", "blue.400")}
           >
             Next.JS
           </Link>
@@ -61,7 +61,7 @@ export const Footer: React.FC = () => (
             isExternal
             href="https://chakra-ui.com/"
             fontWeight="bold"
-            color={useColorModeValue("teal.500", "teal.400")}
+            color={useColorModeValue("blue.500", "blue.400")}
           >
             Chakra UI
           </Link>

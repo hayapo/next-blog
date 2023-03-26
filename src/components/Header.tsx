@@ -63,7 +63,7 @@ export const Header: React.FC<Props> = ({ siteTitle }) => {
   const { isOpen } = useDisclosure();
 
   return (
-    <Box as="header" borderBottom="2px" borderBottomColor="gray.400">
+    <Box as="header" borderBottom="2px" borderBottomColor="blue.300">
       <Container maxW="container.xl">
         <Flex as="nav" alignItems="center" justify="space-between" wrap="wrap" minH={"40px"} py="4">
           <NextLink href="/">
