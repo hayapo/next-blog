@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, {ReactNode} from "react";
 import {
   Box,
   Stack,
@@ -14,10 +14,10 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-import { FaTwitter } from "@react-icons/all-files/fa/FaTwitter";
-import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
-import { ToggleMenu } from "./ToggleMenu";
+import {MoonIcon, SunIcon} from "@chakra-ui/icons";
+import {FaTwitter} from "@react-icons/all-files/fa/FaTwitter";
+import {FaGithub} from "@react-icons/all-files/fa/FaGithub";
+import {ToggleMenu} from "./ToggleMenu";
 
 type Props = {
   siteTitle: string;
@@ -58,12 +58,12 @@ const SocialButton = ({
   );
 };
 
-export const Header: React.FC<Props> = ({ siteTitle }) => {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const { isOpen } = useDisclosure();
+export const Header: React.FC<Props> = ({siteTitle}) => {
+  const {colorMode, toggleColorMode} = useColorMode();
+  const {isOpen} = useDisclosure();
 
   return (
-    <Box as="header" borderBottom="2px" borderBottomColor="blue.300">
+    <Box as="header">
       <Container maxW="container.xl">
         <Flex as="nav" alignItems="center" justify="space-between" wrap="wrap" minH={"40px"} py="4">
           <NextLink href="/">
@@ -89,15 +89,15 @@ export const Header: React.FC<Props> = ({ siteTitle }) => {
                 icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
                 onClick={toggleColorMode}
               />
-              <Box display={{ base: "block", md: "none" }} marginX={2}>
+              <Box display={{base: "block", md: "none"}} marginX={2}>
                 <ToggleMenu />
               </Box>
               <Stack
-                direction={{ base: "column", md: "row" }}
-                display={{ base: isOpen ? "block" : "none", md: "flex" }}
+                direction={{base: "column", md: "row"}}
+                display={{base: isOpen ? "block" : "none", md: "flex"}}
                 alignItems={"center"}
                 justifyContent={"center"}
-                mt={{ base: 4, md: 0 }}
+                mt={{base: 4, md: 0}}
                 marginX={4}
                 spacing={4}
               >
