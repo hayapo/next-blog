@@ -1,15 +1,15 @@
 import React from "react";
-import { Box, Flex, LinkOverlay, LinkBox, Text } from "@chakra-ui/react";
+import {Box, Flex, LinkOverlay, LinkBox, Text} from "@chakra-ui/react";
 import NextLink from "next/link";
-import { dateTime } from "lib/dateTime";
-import type { BlogType } from "types/blog";
-import { TagLink } from "./TagLink";
+import {dateTime} from "lib/dateTime";
+import type {BlogType} from "types/blog";
+import {TagLink} from "./TagLink";
 
 type Props = {
   post: BlogType;
 };
 
-export const ArticleCard: React.FC<Props> = ({ post }) => {
+export const ArticleCard: React.FC<Props> = ({post}) => {
   const publishDate = dateTime(post.publishedAt);
   const updateDate = dateTime(post.updatedAt);
   return (
@@ -17,9 +17,7 @@ export const ArticleCard: React.FC<Props> = ({ post }) => {
       as="article"
       w="full"
       p="20px"
-      borderWidth="2px"
-      borderColor="blue.300"
-      rounded="lg"
+      rounded={"xl"}
       _hover={{
         backgroundColor: "gray.100",
       }}
