@@ -24,8 +24,8 @@ const CmsPost: NextPage<Props> = ({ post }) => {
       <Head pageTitle={post.title} pageDescription={post.description} type="article" />
       {post.tag && (
         <Box
-          marginTop="3rem"
-          marginBottom="-3rem"
+          marginTop="1rem"
+          marginBottom="2rem"
           display="flex"
           flexWrap="wrap"
           justifyContent="flex-start"

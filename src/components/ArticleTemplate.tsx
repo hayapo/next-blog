@@ -29,6 +29,7 @@ import rust from "highlight.js/lib/languages/rust";
 import elm from "highlight.js/lib/languages/elm";
 import kotlin from "highlight.js/lib/languages/kotlin";
 import xml from "highlight.js/lib/languages/xml";
+import shell from "highlight.js/lib/languages/shell";
 import "highlight.js/styles/base16/material-darker.css";
 
 hljs.registerLanguage("javascript", javascript);
@@ -40,6 +41,7 @@ hljs.registerLanguage("rust", rust);
 hljs.registerLanguage("elm", elm);
 hljs.registerLanguage("kotlin", kotlin);
 hljs.registerLanguage("xml", xml);
+hljs.registerLanguage("shell", shell);
 
 type ArticleTemplateType = {
   html: string;
@@ -57,7 +59,6 @@ const options: HTMLReactParserOptions = {
             lineHeight="3.5rem"
             borderBottomWidth="4px"
             borderColor="blue.300"
-            marginTop="5.0rem"
             marginBottom="2.0rem"
             pb="4px"
             {...props}
@@ -74,7 +75,6 @@ const options: HTMLReactParserOptions = {
             lineHeight="3rem"
             borderBottomWidth="4px"
             borderColor="blue.300"
-            marginTop="5.0rem"
             marginBottom="2.0rem"
             pb="4px"
             {...props}
@@ -91,7 +91,6 @@ const options: HTMLReactParserOptions = {
             lineHeight="2.5rem"
             borderBottomWidth="4px"
             borderColor="blue.300"
-            marginTop="5.0rem"
             marginBottom="2.0rem"
             pb="4px"
             {...props}
@@ -108,7 +107,6 @@ const options: HTMLReactParserOptions = {
             lineHeight="1.5rem"
             borderBottomWidth="3px"
             borderColor="blue.300"
-            marginTop="5.0rem"
             marginBottom="2.0rem"
             pb="4px"
             {...props}
@@ -218,6 +216,7 @@ const options: HTMLReactParserOptions = {
             "go",
             "elm",
             "kotlin",
+            "shell"
           ];
           const highlightCode = hljs.highlightAuto(
             domToReact(domNode.children) as string,
@@ -225,7 +224,7 @@ const options: HTMLReactParserOptions = {
           ).value;
           return (
             <Box as="code" className="hljs" borderRadius="15px">
-              <Box padding="1.5rem">{parse(highlightCode)}</Box>
+              <Box padding="0.2rem">{parse(highlightCode)}</Box>
             </Box>
           );
         } else {
